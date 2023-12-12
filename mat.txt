@@ -1,0 +1,78 @@
+%Basics of matrix operatoins
+sum(), max(), min(), prod(), size(), inv(), rank(), cross(), dot()
+
+%Looping 
+sum = 0;
+n=...;
+for k=1:n
+  sum = sum + eq
+end
+disp(sum)
+
+%lagrange's interpolation
+Ans: function[]=lag_poly(x,y)
+n=length(x);
+syms t
+sum=0;
+for i=1:n
+    L=1;
+    for j=1:n
+    if i~=j
+        L=L*(t-x(j))/(x(i)-x(j));
+    end
+    end
+    sum=sum+L*y(i);
+end
+sum=simplify(sum);
+fprintf('Lagrange interpolating polynomial for the given data is\n')
+disp( vpa(sum,4))
+t=x(1):0.01:x(n);
+z=eval(vpa(sum,4));
+plot(x,y,'*', t,z, 'r')
+t=[10];
+eval(sum)
+end
+
+Output 
+In command window:
+x=[5 6 9 11];
+y=[12 13 14 16];
+>> lag_poly(x,y)
+
+%simpson's 1/3 or trapezoidal
+f=@(x) exp(sin(x))
+a=0;
+b=pi;
+n=20;
+h=(b-a)/n;
+I=f(a)+f(b);
+for i=1:n-1
+    I=I+2*f(a+i*h);
+end
+I=(h/2)*I;
+fprintf('The integration of given function a t b is\n','I')
+disp(I)
+
+%vector field plotting
+a=1;n=10;
+x=linspace(-a,a,n);
+y=linspace(-a,a,n);
+z=linspace(-a,a,n);
+[x,y,z]=meshgrid(x,y,z);
+ f1=x.*y;
+ f2= z.*y.^2;
+ f3= x.*z;
+quiver3(x,y,z,f1,f2,f3)
+
+%periodic function
+f=@(x) x.*sin(x).*(0<=x & x<pi) + x.*(pi<=x & x<2*pi)
+x=linspace(0,2*pi,1000);
+rfx=repmat(f(x),1,3);
+rx=linspace(-2*pi,4*pi,length(rfx));
+plot(rx,rfx)
+
+
+
+
+
+
