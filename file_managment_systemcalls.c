@@ -5,8 +5,8 @@
 
 int main(int argc,char** argv){
     char buff[]="";
-    char fd1=open("/Users/trishau/Desktop/ccodes/f1.txt",O_RDONLY);
-    char fd2=open("/Users/trishau/Desktop/ccodes/f2.txt",O_WRONLY);
+    char fd1=open("/Users/rishav/Desktop/ccodes/f1.txt",O_RDONLY);
+    char fd2=open("/Users/rishav/Desktop/ccodes/f2.txt",O_WRONLY);
     if (fd1==-1){
         printf("error");
     }
